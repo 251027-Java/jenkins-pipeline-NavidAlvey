@@ -25,7 +25,8 @@ pipeline {
             steps {
                 // TODO: Make mvnw executable and run compile
                 // Hint: Use sh 'chmod +x mvnw' and sh './mvnw clean compile'
-                echo 'Checked Build step'
+                sh 'chmod +x mvnw'
+                sh './mvnw clean compile'
             }
         }
         
@@ -33,7 +34,7 @@ pipeline {
             steps {
                 // TODO: Run the Maven tests
                 // Hint: sh './mvnw test'
-                echo 'Checked Test step'
+                sh './mvnw test'
             }
         }
         
@@ -41,13 +42,7 @@ pipeline {
             steps {
                 // TODO: Create the JAR file, skipping tests (already ran)
                 // Hint: sh './mvnw package -DskipTests'
-                echo 'Checked Package step'
-            }
-        }
-        stage('Docker Build') {
-            steps {
-                echo "Building Docker image..."
-                sh 'docker build -t myapp:${BUILD_NUMBER} .'
+                sh './mvnw package -DskipTests'
             }
         }
     }
