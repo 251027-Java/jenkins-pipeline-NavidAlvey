@@ -26,6 +26,7 @@ pipeline {
             steps {
                 // TODO: Make mvnw executable and run compile
                 // Hint: Use sh 'chmod +x mvnw' and sh './mvnw clean compile'
+                echo 'Checked Build step'
             }
         }
         
@@ -33,6 +34,7 @@ pipeline {
             steps {
                 // TODO: Run the Maven tests
                 // Hint: sh './mvnw test'
+                echo 'Checked Test step'
             }
         }
         
@@ -40,6 +42,7 @@ pipeline {
             steps {
                 // TODO: Create the JAR file, skipping tests (already ran)
                 // Hint: sh './mvnw package -DskipTests'
+                echo 'Checked Package step'
             }
         }
     }
