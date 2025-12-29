@@ -44,6 +44,12 @@ pipeline {
                 echo 'Checked Package step'
             }
         }
+        stage('Docker Build') {
+            steps {
+                echo "Building Docker image..."
+                sh 'docker build -t myapp:${BUILD_NUMBER} .'
+            }
+        }
     }
     
     post {
